@@ -1,0 +1,85 @@
+/**
+ * Btn Component Styles
+ */
+
+.btn {
+  @include button-base;
+  position: relative;
+  min-height: $min-touch-target;
+
+  @include mobile-only {
+    font-size: $font-size-sm;
+  }
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+
+  &--primary {
+    @include button-primary;
+  }
+
+  &--outline {
+    @include button-outline;
+  }
+
+  &--ghost {
+    @include button-ghost;
+  }
+
+  &--danger {
+    @include button-base;
+    background-color: transparent;
+    border: 1px solid $color-error;
+    color: $color-error;
+
+    &:hover:not(:disabled) {
+      background-color: rgba($color-error, 0.05);
+    }
+  }
+
+  &--small {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-xs;
+  }
+
+  &--medium {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-sm;
+  }
+
+  &--large {
+    padding: $spacing-lg $spacing-2xl;
+    font-size: $font-size-base;
+  }
+
+  &--fullWidth {
+    width: 100%;
+  }
+
+  &--busy {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+.loader {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: rotate 0.6s linear infinite;
+  margin-right: $spacing-sm;
+}
+
+.busyText {
+  display: inline-block;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,223 @@
+/**
+ * Data Grid Styles
+ */
+
+.gridWrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  @include custom-scrollbar;
+  -webkit-overflow-scrolling: touch;
+
+  @include mobile-only {
+    overflow-x: scroll;
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+    position: relative;
+  }
+
+  @include desktop {
+    overflow-x: auto;
+  }
+}
+
+.grid {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: auto;
+  min-width: 900px;
+
+  @include mobile-only {
+    min-width: 800px;
+    font-size: 0.8rem;
+  }
+
+  thead {
+    tr {
+      th {
+        padding: $spacing-sm $spacing-md;
+        text-align: left;
+        font-size: 0.87rem;
+        min-width: 120px;
+        white-space: nowrap;
+
+        @include mobile-only {
+          padding: $spacing-sm;
+          font-size: 0.75rem;
+          min-width: 100px;
+        }
+
+        &:nth-child(1) { min-width: 140px; }
+        &:nth-child(2) { min-width: 120px; }
+        &:nth-child(3) { min-width: 180px; }
+        &:nth-child(4) { min-width: 140px; }
+        &:nth-child(5) { min-width: 160px; }
+        &:nth-child(6) { min-width: 100px; }
+        &:nth-child(7) { min-width: 50px; }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background-color $transition-fast;
+      border-bottom: 1px solid $color-gray-lighter;
+
+      &:hover {
+        background-color: rgba($color-primary, 0.02);
+      }
+
+      td {
+        padding: $spacing-md;
+        font-size: 0.87rem;
+        line-height: 1.4;
+        color: $color-gray;
+        border-bottom: 1px solid $color-gray-lighter;
+        white-space: nowrap;
+
+        @include mobile-only {
+          padding: $spacing-sm;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+.dateCol {
+  font-size: 0.84rem;
+  white-space: nowrap;
+
+  @include mobile-only {
+    font-size: 0.75rem;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.colTitle {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  min-width: 0;
+
+  span {
+    @include label-text;
+    white-space: nowrap;
+
+    @include mobile-only {
+      font-size: 0.65rem;
+      letter-spacing: 0.3px;
+    }
+  }
+}
+
+.filterTrigger {
+  background: none;
+  border: none;
+  padding: $spacing-xs;
+  cursor: pointer;
+  color: $color-gray;
+  display: flex;
+  align-items: center;
+  transition: color $transition-fast;
+  flex-shrink: 0;
+
+  @include mobile-only {
+    padding: 2px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &:hover {
+    color: $color-navy;
+  }
+}
+
+.actionsCol {
+  position: relative;
+  width: 50px;
+  text-align: center;
+}
+
+.statusCol {
+  width: 120px;
+}
+
+.moreBtn {
+  background: none;
+  border: none;
+  padding: $spacing-sm;
+  cursor: pointer;
+  color: $color-gray;
+  display: flex;
+  align-items: center;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-navy;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: $color-white;
+  border: 1px solid $color-gray-lighter;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  z-index: $z-index-dropdown;
+  min-width: 180px;
+  padding: $spacing-sm 0;
+
+  @include mobile-only {
+    right: auto;
+    left: -160px;
+    min-width: 160px;
+  }
+
+  button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-md $spacing-lg;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: $font-size-sm;
+    color: $color-navy;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+    white-space: nowrap;
+
+    @include mobile-only {
+      padding: $spacing-sm $spacing-md;
+      gap: $spacing-sm;
+      font-size: 0.75rem;
+    }
+
+    &:hover {
+      background-color: $color-gray-bg;
+    }
+
+    svg {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.dropdownIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}

@@ -1,0 +1,40 @@
+/**
+ * Tag Component Styles
+ */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  text-transform: capitalize;
+  white-space: nowrap;
+
+  @include mobile-only {
+    font-size: 0.7rem;
+    padding: 2px $spacing-sm;
+  }
+
+  &--active {
+    background-color: $color-success-bg;
+    color: $color-success;
+  }
+
+  &--inactive {
+    background-color: $color-inactive-bg;
+    color: $color-inactive;
+  }
+
+  &--pending {
+    background-color: $color-warning-bg;
+    color: $color-warning;
+  }
+
+  &--blacklisted {
+    background-color: $color-error-bg;
+    color: $color-error;
+  }
+}

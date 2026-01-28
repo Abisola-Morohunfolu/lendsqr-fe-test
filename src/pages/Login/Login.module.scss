@@ -1,0 +1,160 @@
+/**
+ * Auth Page Styles
+ */
+
+.authPage {
+  min-height: 100vh;
+  display: flex;
+
+  @include mobile-only {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.brandPane {
+  flex: 1;
+  background-color: transparent;
+  padding: $spacing-2xl;
+  display: flex;
+  flex-direction: column;
+
+  @include mobile-only {
+    display: none;
+  }
+
+  @include desktop {
+    padding: $spacing-3xl $spacing-2xl;
+    background-color: $color-gray-bg;
+  }
+}
+
+.brandWrap {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-3xl;
+
+  @include mobile-only {
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.brandIcon {
+  height: 30px;
+  width: auto;
+}
+
+.heroArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.heroImg {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+}
+
+.formPane {
+  flex: 1;
+  background-color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl $spacing-md;
+
+  @include mobile-only {
+    flex: 1;
+    width: 100%;
+  }
+
+  @include desktop {
+    padding: $spacing-2xl;
+  }
+}
+
+.formWrap {
+  width: 100%;
+  max-width: 450px;
+
+  @include mobile-only {
+    max-width: 100%;
+  }
+}
+
+.mobileBrand {
+  display: none;
+
+  @include mobile-only {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.headerSection {
+  margin-bottom: $spacing-3xl;
+  text-align: left;
+
+  @include mobile-only {
+    margin-bottom: $spacing-xl;
+    text-align: center;
+  }
+}
+
+.mainTitle {
+  @include heading-1;
+  margin-bottom: $spacing-md;
+  text-align: left;
+
+  @include mobile-only {
+    font-size: $font-size-3xl;
+    text-align: center;
+  }
+}
+
+.tagline {
+  @include body-text;
+  font-size: $font-size-xl;
+  text-align: left;
+
+  @include mobile-only {
+    font-size: $font-size-base;
+    text-align: center;
+  }
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.resetLink {
+  @include small-text;
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  margin-top: -$spacing-sm;
+  margin-bottom: $spacing-md;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+}

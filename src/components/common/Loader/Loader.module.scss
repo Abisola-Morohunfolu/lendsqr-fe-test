@@ -1,0 +1,55 @@
+/**
+ * Spinner Component Styles
+ */
+
+.spinnerWrap {
+  @include flex-center;
+
+  &--small {
+    .ring {
+      width: 20px;
+      height: 20px;
+      border-width: 2px;
+    }
+  }
+
+  &--medium {
+    .ring {
+      width: 40px;
+      height: 40px;
+      border-width: 3px;
+    }
+  }
+
+  &--large {
+    .ring {
+      width: 60px;
+      height: 60px;
+      border-width: 4px;
+    }
+  }
+}
+
+.ring {
+  border: 3px solid $color-gray-lighter;
+  border-top-color: $color-primary;
+  border-radius: 50%;
+  animation: revolve 0.6s linear infinite;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include flex-center;
+  background-color: rgba($color-white, 0.9);
+  z-index: $z-index-modal;
+}
+
+@keyframes revolve {
+  to {
+    transform: rotate(360deg);
+  }
+}

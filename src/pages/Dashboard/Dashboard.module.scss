@@ -1,0 +1,54 @@
+/**
+ * Users Page Styles
+ * Mobile-optimized with responsive grid
+ */
+
+.usersPage {
+  width: 100%;
+  max-width: $container-max-width;
+  overflow-x: hidden;
+
+  @include mobile-only {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+.heading {
+  @include heading-2;
+  margin-bottom: $spacing-2xl;
+
+  @include mobile-only {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.dataCard {
+  background-color: $color-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  padding: $spacing-xl;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  @include mobile-only {
+    padding: $spacing-md;
+    border-radius: $radius-sm;
+    overflow-x: hidden;
+  }
+}
+
+.spinnerWrap,
+.errorWrap {
+  @include flex-center;
+  min-height: 400px;
+}
+
+.errorText {
+  @include body-text;
+  color: $color-error;
+  text-align: center;
+}

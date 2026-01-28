@@ -1,0 +1,296 @@
+/**
+ * Top Bar Styles
+ * Includes mobile menu toggle
+ */
+
+.topBar {
+  height: $header-height;
+  background-color: $color-white;
+  border-bottom: 1px solid $color-gray-lighter;
+  position: fixed;
+  top: 0;
+  left: $sidebar-width;
+  right: 0;
+  z-index: $z-index-sticky;
+
+  @include mobile-only {
+    left: 0;
+    height: 70px;
+  }
+}
+
+.topBarContent {
+  height: 100%;
+  padding: 0 $spacing-xl;
+  @include flex-between;
+  gap: $spacing-xl;
+
+  @include mobile-only {
+    padding: 0 $spacing-md;
+    gap: $spacing-sm;
+  }
+}
+
+.menuToggle {
+  display: none !important;
+  width: $min-touch-target;
+  height: $min-touch-target;
+  @include flex-center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-direction: column;
+  gap: 4px;
+
+  @include mobile-only {
+    display: flex !important;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.menuBar {
+  width: 20px;
+  height: 2px;
+  background-color: $color-navy;
+  border-radius: 2px;
+  transition: all $transition-fast;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: $color-navy;
+    border-radius: 2px;
+    transition: all $transition-fast;
+  }
+
+  &::before {
+    transform: translateY(-6px);
+  }
+
+  &::after {
+    transform: translateY(4px);
+  }
+}
+
+.searchBox {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  max-width: 400px;
+  height: 40px;
+  justify-content: center;
+
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.searchField {
+  flex: 1;
+  padding: 0 $spacing-lg;
+  border: 1px solid $color-gray-lighter;
+  border-right: none;
+  border-radius: $radius-lg 0 0 $radius-lg;
+  font-size: $font-size-sm;
+  outline: none;
+  transition: border-color $transition-fast;
+  height: 100%;
+  line-height: 1;
+
+  &:focus {
+    border-color: $color-primary;
+  }
+
+  &::placeholder {
+    color: $color-gray-light;
+
+    @include mobile-only {
+      font-size: 0.75rem;
+    }
+  }
+
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.searchSubmit {
+  padding: 0 $spacing-lg;
+  background-color: $color-primary;
+  border: none;
+  border-radius: 0 $radius-lg $radius-lg 0;
+  cursor: pointer;
+  @include flex-center;
+  transition: background-color $transition-fast;
+  height: 100%;
+  min-width: 56px;
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+
+  @include mobile-only {
+    min-width: 40px;
+    padding: 0 $spacing-sm;
+    border-radius: $radius-lg;
+    width: 40px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2xl;
+
+  @include mobile-only {
+    gap: $spacing-xs;
+  }
+}
+
+.mobileSearch {
+  display: none;
+
+  @include mobile-only {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity $transition-fast;
+    color: $color-navy;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.helpLink {
+  @include small-text;
+  color: $color-navy;
+  text-decoration: underline;
+  font-weight: $font-weight-normal;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.alertBtn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-sm;
+
+  @include mobile-only {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    @include flex-center;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.alertIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.alertCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: $color-primary;
+  color: $color-white;
+  font-size: 10px;
+  font-weight: $font-weight-bold;
+  min-width: 16px;
+  height: 16px;
+  border-radius: $radius-full;
+  @include flex-center;
+  padding: 0 4px;
+}
+
+.accountInfo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+
+  @include mobile-only {
+    gap: 0;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.profilePic {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  background-color: $color-primary-light;
+  color: $color-primary;
+  @include flex-center;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-base;
+  overflow: hidden;
+
+  @include mobile-only {
+    width: 32px;
+    height: 32px;
+    font-size: $font-size-sm;
+  }
+}
+
+.profileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: $radius-full;
+}
+
+.displayName {
+  @include small-text;
+  color: $color-navy;
+  font-weight: $font-weight-medium;
+
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.caret {
+  flex-shrink: 0;
+}

@@ -1,0 +1,257 @@
+/**
+ * Navigation Panel Styles
+ * Fixed navigation with mobile overlay support
+ */
+
+// Mobile overlay background
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: $z-index-modal-backdrop;
+  display: none;
+
+  @include mobile-only {
+    display: block;
+  }
+}
+
+.navPanel {
+  width: $sidebar-width;
+  height: 100vh;
+  height: 100dvh;
+  background-color: $color-white;
+  border-right: 1px solid $color-gray-lighter;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: $z-index-fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include custom-scrollbar;
+
+  @include desktop {
+    transform: translateX(0);
+  }
+
+  @include mobile-only {
+    transform: translateX(-100%);
+    transition: transform $transition-base ease-in-out;
+    z-index: $z-index-modal;
+    box-shadow: $shadow-xl;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.navExpanded {
+  @include mobile-only {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.panelContent {
+  padding: $spacing-lg $spacing-md;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+// Mobile dismiss button
+.dismissBtn {
+  display: none !important;
+  position: absolute;
+  top: $spacing-lg;
+  right: $spacing-lg;
+  width: $min-touch-target;
+  height: $min-touch-target;
+  @include flex-center;
+  background: none;
+  border: none;
+  color: $color-navy;
+  cursor: pointer;
+  z-index: 10;
+
+  @include mobile-only {
+    display: flex !important;
+  }
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.brandLogo {
+  margin-bottom: $spacing-2xl;
+}
+
+.brandImg {
+  height: 30px;
+  width: auto;
+}
+
+.orgSelector {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  border: 1px solid $color-gray-lighter;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  margin-bottom: $spacing-xl;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $color-primary;
+  }
+
+  span {
+    flex: 1;
+    font-size: $font-size-sm;
+    color: $color-navy;
+  }
+
+  .dropIcon {
+    flex-shrink: 0;
+  }
+}
+
+.orgImg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.homeLink {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  color: $color-gray;
+  text-decoration: none;
+  font-size: $font-size-sm;
+  border-radius: $radius-sm;
+  margin-bottom: $spacing-lg;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $color-gray-bg;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.menuGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.groupLabel {
+  @include label-text;
+  padding: 0 $spacing-md;
+  margin-bottom: $spacing-sm;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  color: $color-gray;
+  text-decoration: none;
+  font-size: $font-size-sm;
+  border-radius: $radius-sm;
+  transition: all $transition-fast;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    background-color: rgba($color-primary, 0.05);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  .itemIcon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+  }
+
+  span {
+    flex: 1;
+  }
+}
+
+.menuItemActive {
+  background-color: rgba($color-primary, 0.1);
+  color: $color-navy;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: $color-primary;
+    border-radius: 0 $radius-sm $radius-sm 0;
+  }
+}
+
+.panelFooter {
+  margin-top: auto;
+  padding-top: $spacing-xl;
+  border-top: 1px solid $color-gray-lighter;
+}
+
+.signOutBtn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  width: 100%;
+  background: none;
+  border: none;
+  color: $color-gray;
+  font-size: $font-size-sm;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $color-gray-bg;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.versionTag {
+  @include small-text;
+  text-align: center;
+  padding: $spacing-md 0;
+  color: $color-gray-light;
+}

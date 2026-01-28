@@ -1,0 +1,38 @@
+.rating {
+  display: flex;
+  gap: $spacing-xs;
+}
+
+.star {
+  flex-shrink: 0;
+}
+
+.filled {
+  fill: #e9b200;
+}
+
+.empty {
+  fill: $color-gray-lighter;
+}
+
+// Sizes
+.small {
+  .star {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.medium {
+  .star {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.large {
+  .star {
+    width: 20px;
+    height: 20px;
+  }
+}

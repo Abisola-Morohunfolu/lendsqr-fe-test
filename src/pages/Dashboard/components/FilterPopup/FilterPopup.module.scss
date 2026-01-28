@@ -1,0 +1,118 @@
+/**
+ * Filter Panel Styles
+ */
+
+.panelOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: transparent;
+  z-index: $z-index-dropdown - 1;
+
+  @include mobile-only {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.filterPanel {
+  position: absolute;
+  top: $spacing-xl;
+  left: $spacing-xl;
+  background-color: $color-white;
+  border: 1px solid $color-gray-lighter;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-xl;
+  padding: $spacing-xl;
+  z-index: $z-index-dropdown + 1;
+  min-width: 310px;
+  max-width: 345px;
+
+  @include mobile-only {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    width: calc(100vw - 2rem);
+    max-width: 320px;
+    padding: $spacing-md;
+    border-radius: $radius-md;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+.filterForm {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  @include mobile-only {
+    gap: $spacing-md;
+  }
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.fieldLabel {
+  @include small-text;
+  font-weight: $font-weight-medium;
+  color: $color-gray;
+
+  @include mobile-only {
+    font-size: 0.75rem;
+  }
+}
+
+.textField,
+.selectField {
+  @include input-field;
+  padding: $spacing-md;
+  font-size: $font-size-sm;
+
+  @include mobile-only {
+    padding: $spacing-sm;
+    font-size: 0.8rem;
+    min-height: $min-touch-target;
+  }
+}
+
+.selectField {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23545F7D' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-md center;
+  padding-right: $spacing-2xl;
+}
+
+.actionRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+  margin-top: $spacing-sm;
+
+  @include mobile-only {
+    gap: $spacing-sm;
+
+    button {
+      font-size: 0.75rem;
+      padding: $spacing-sm $spacing-md;
+    }
+  }
+}
+
+.textField[type='date'] {
+  padding-right: $spacing-2xl;
+  background-image: url("@/assets/icons/calender.svg");
+  background-repeat: no-repeat;
+  background-position: right $spacing-md center;
+  background-size: 16px;
+
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+  }
+}

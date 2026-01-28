@@ -1,0 +1,91 @@
+/**
+ * TextField Styles
+ */
+
+.fieldWrap {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+}
+
+.fieldLabel {
+  @include label-text;
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.fieldBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field {
+  @include input-field;
+  min-height: $min-touch-target;
+
+  @include mobile-only {
+    font-size: 1rem;
+  }
+
+  &--invalid {
+    border-color: $color-error;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-error, 0.1);
+    }
+  }
+
+  &--block {
+    width: 100%;
+  }
+
+  &:has(~ .visibilityToggle) {
+    padding-right: 60px;
+  }
+}
+
+.visibilityToggle {
+  position: absolute;
+  right: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: $color-primary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding: $spacing-xs;
+  transition: color $transition-fast;
+  min-width: 44px;
+  min-height: 44px;
+
+  @include mobile-only {
+    right: $spacing-sm;
+  }
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+    border-radius: $radius-sm;
+  }
+}
+
+.fieldError {
+  @include small-text;
+  color: $color-error;
+  font-size: $font-size-xs;
+  margin-top: $spacing-xs;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-webkit-reveal {
+  display: none;
+}

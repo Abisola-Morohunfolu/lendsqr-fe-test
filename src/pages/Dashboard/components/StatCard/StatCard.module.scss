@@ -1,0 +1,83 @@
+/**
+ * Metric Card Styles
+ */
+
+.metricCard {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  @include mobile-only {
+    padding: $spacing-md;
+    gap: $spacing-sm;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.iconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  @include flex-center;
+
+  @include mobile-only {
+    width: 32px;
+    height: 32px;
+  }
+
+  &--pink {
+    background-color: $color-stat-pink-bg;
+    color: $color-stat-pink;
+  }
+
+  &--purple {
+    background-color: $color-stat-purple-bg;
+    color: $color-stat-purple;
+  }
+
+  &--orange {
+    background-color: $color-stat-orange-bg;
+    color: $color-stat-orange;
+  }
+
+  &--red {
+    background-color: $color-stat-red-bg;
+    color: $color-stat-red;
+  }
+}
+
+.iconImg {
+  width: 24px;
+  height: 24px;
+
+  @include mobile-only {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.metricLabel {
+  @include label-text;
+  color: $color-gray;
+  font-size: $font-size-sm;
+
+  @include mobile-only {
+    font-size: 0.65rem;
+  }
+}
+
+.metricValue {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: $color-navy;
+
+  @include mobile-only {
+    font-size: $font-size-lg;
+  }
+}

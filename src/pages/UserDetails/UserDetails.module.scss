@@ -1,0 +1,433 @@
+/**
+ * Profile Page Styles
+ */
+
+.profilePage {
+  width: 100%;
+  max-width: $container-max-width;
+  overflow-x: hidden;
+
+  @include mobile-only {
+    max-width: 100vw;
+  }
+}
+
+.returnBtn {
+  @include flex-center;
+  gap: $spacing-sm;
+  padding: $spacing-sm 0;
+  background: none;
+  border: none;
+  color: $color-gray;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  cursor: pointer;
+  margin-bottom: $spacing-2xl;
+  transition: color $transition-fast;
+  min-height: $min-touch-target;
+  justify-content: flex-start;
+
+  @include mobile-only {
+    margin-bottom: $spacing-lg;
+    font-size: 0.8rem;
+  }
+
+  &:hover {
+    color: $color-navy;
+  }
+}
+
+.returnIcon {
+  width: 18px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.headerRow {
+  @include flex-between;
+  margin-bottom: $spacing-2xl;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+
+  @include mobile-only {
+    margin-bottom: $spacing-lg;
+    gap: $spacing-md;
+  }
+}
+
+.title {
+  @include heading-2;
+  margin-bottom: 0;
+
+  @include mobile-only {
+    font-size: $font-size-xl;
+    width: 100%;
+  }
+}
+
+.btnGroup {
+  display: flex;
+  gap: $spacing-lg;
+
+  @include mobile-only {
+    width: 100%;
+    gap: $spacing-sm;
+
+    button {
+      flex: 1;
+      font-size: 0.7rem;
+      padding: $spacing-sm $spacing-md;
+    }
+  }
+}
+
+.profileCard {
+  background-color: $color-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  margin-bottom: $spacing-2xl;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  @include mobile-only {
+    margin-bottom: $spacing-lg;
+    border-radius: $radius-sm;
+  }
+}
+
+.profileTop {
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr 0.8fr;
+  gap: $spacing-2xl;
+  padding: $spacing-2xl;
+  border-bottom: 1px solid $color-gray-lighter;
+
+  @include mobile-only {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding: $spacing-md;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  @include tablet-only {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.userBasic {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  min-width: 0;
+
+  @include mobile-only {
+    justify-content: space-between;
+    gap: $spacing-lg;
+    flex-wrap: nowrap;
+    text-align: left;
+  }
+}
+
+.photo {
+  width: 100px;
+  height: 100px;
+  border-radius: $radius-full;
+  overflow: hidden;
+  background-color: rgba($color-navy, 0.08);
+  @include flex-center;
+  flex-shrink: 0;
+
+  @include mobile-only {
+    width: 70px;
+    height: 70px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    // Fallback placeholder icon should be smaller
+    &[src$=".svg"] {
+      width: 60%;
+      height: 60%;
+      object-fit: contain;
+    }
+  }
+
+  svg {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+.userMeta {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  min-width: 0;
+}
+
+.fullName {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-medium;
+  color: $color-navy;
+  word-break: break-word;
+
+  @include mobile-only {
+    font-size: $font-size-lg;
+  }
+}
+
+.accountId {
+  @include small-text;
+  word-break: break-all;
+
+  @include mobile-only {
+    font-size: 0.75rem;
+  }
+}
+
+.tierSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  padding-left: $spacing-xl;
+  border-left: 1px solid $color-gray-lighter;
+  text-align: center;
+
+  @include mobile-only {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid $color-gray-lighter;
+    padding-top: $spacing-md;
+  }
+
+  @include tablet-only {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+.tierText {
+  @include label-text;
+}
+
+.balanceSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding-left: $spacing-xl;
+  border-left: 1px solid $color-gray-lighter;
+
+  @include mobile-only {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid $color-gray-lighter;
+    padding-top: $spacing-md;
+    align-items: center;
+    text-align: center;
+  }
+
+  @include tablet-only {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid $color-gray-lighter;
+    padding-top: $spacing-md;
+  }
+}
+
+.balance {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: $color-navy;
+
+  @include mobile-only {
+    font-size: $font-size-lg;
+  }
+}
+
+.bankInfo {
+  @include small-text;
+  font-size: $font-size-xs;
+
+  @include mobile-only {
+    font-size: 0.7rem;
+  }
+}
+
+.navTabs {
+  display: flex;
+  gap: $spacing-2xl;
+  padding: 0 $spacing-2xl;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  @include custom-scrollbar;
+  max-width: 100%;
+
+  @include mobile-only {
+    gap: $spacing-md;
+    padding: 0 $spacing-md;
+    margin: 0;
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
+    width: 100%;
+  }
+}
+
+.navTab {
+  padding: $spacing-lg 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: $color-gray;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all $transition-fast;
+  min-height: $min-touch-target;
+
+  @include mobile-only {
+    font-size: 0.75rem;
+    padding: $spacing-md 0;
+  }
+
+  &:hover {
+    color: $color-navy;
+  }
+}
+
+.navTabSelected {
+  color: $color-primary;
+  border-bottom-color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.contentCard {
+  background-color: $color-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  padding: $spacing-2xl;
+
+  @include mobile-only {
+    padding: $spacing-lg $spacing-md;
+    border-radius: $radius-sm;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
+
+.block {
+  padding-bottom: $spacing-2xl;
+  margin-bottom: $spacing-2xl;
+  border-bottom: 1px solid $color-gray-lighter;
+
+  @include mobile-only {
+    padding-bottom: $spacing-xl;
+    margin-bottom: $spacing-xl;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.blockTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-navy;
+  margin-bottom: $spacing-xl;
+
+  @include mobile-only {
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.dataGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-xl $spacing-2xl;
+
+  @include mobile-only {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+
+  & + & {
+    margin-top: $spacing-xl;
+  }
+}
+
+.dataGridFourCol {
+  grid-template-columns: repeat(4, 1fr);
+
+  @include tablet-only {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile-only {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dataGridNarrow {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+}
+
+.dataField {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.dataLabel {
+  @include label-text;
+  color: $color-gray;
+
+  @include mobile-only {
+    font-size: 0.65rem;
+  }
+}
+
+.dataValue {
+  @include small-text;
+  color: $color-gray;
+  font-weight: $font-weight-medium;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+
+  @include mobile-only {
+    font-size: 0.8rem;
+  }
+}
+
+.emptyText {
+  @include body-text;
+  text-align: center;
+  padding: $spacing-3xl;
+  color: $color-gray-light;
+}
+
+.spinnerBox,
+.errorBox {
+  @include flex-center;
+  flex-direction: column;
+  min-height: 400px;
+  gap: $spacing-lg;
+}
+
+.errorMsg {
+  @include body-text;
+  color: $color-error;
+  text-align: center;
+}

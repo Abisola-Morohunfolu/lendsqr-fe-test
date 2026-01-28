@@ -1,0 +1,40 @@
+/**
+ * App Layout Styles
+ */
+
+.appLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: $color-gray-bg;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.contentArea {
+  flex: 1;
+  margin-left: $sidebar-width;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - #{$sidebar-width});
+  overflow-x: hidden;
+
+  @include mobile-only {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.pageContent {
+  flex: 1;
+  margin-top: $header-height;
+  padding: $spacing-2xl;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  @include mobile-only {
+    margin-top: 70px;
+    padding: $spacing-md;
+  }
+}

@@ -1,0 +1,44 @@
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-2xl;
+  padding: 0 $spacing-2xl;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  @include custom-scrollbar;
+  max-width: 100%;
+
+  @include mobile-only {
+    gap: $spacing-md;
+    padding: 0 $spacing-md;
+  }
+}
+
+.tab {
+  padding: $spacing-lg 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: $color-gray;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all $transition-fast;
+  min-height: $min-touch-target;
+
+  @include mobile-only {
+    font-size: 0.75rem;
+    padding: $spacing-md 0;
+  }
+
+  &:hover {
+    color: $color-navy;
+  }
+}
+
+.tabActive {
+  color: $color-primary;
+  border-bottom-color: $color-primary;
+  font-weight: $font-weight-medium;
+}

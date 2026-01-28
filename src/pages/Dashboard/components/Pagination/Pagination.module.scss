@@ -1,0 +1,151 @@
+/**
+ * Pager Component Styles
+ */
+
+.pager {
+  @include flex-between;
+  padding-top: $spacing-xl;
+  margin-top: $spacing-xl;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+
+  @include mobile-only {
+    flex-direction: column;
+    align-items: center;
+    padding-top: $spacing-lg;
+    margin-top: $spacing-lg;
+    gap: $spacing-md;
+  }
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  @include small-text;
+  color: $color-gray;
+
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.sizeSelect {
+  padding: $spacing-xs $spacing-md;
+  border: 1px solid $color-gray-lighter;
+  border-radius: $radius-sm;
+  background-color: rgba($color-navy, 0.05);
+  color: $color-navy;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  appearance: none;
+  font-size: $font-size-sm;
+
+  @include mobile-only {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 0.75rem;
+    min-height: $min-touch-target;
+  }
+
+  &:focus {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  @include mobile-only {
+    gap: $spacing-sm;
+  }
+}
+
+.arrowBtn {
+  width: 32px;
+  height: 32px;
+  @include flex-center;
+  background-color: rgba($color-navy, 0.05);
+  border: 1px solid $color-gray-lighter;
+  border-radius: $radius-sm;
+  color: $color-gray;
+  cursor: pointer;
+  transition: all $transition-fast;
+  flex-shrink: 0;
+
+  @include mobile-only {
+    width: 36px;
+    height: 36px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  @include mobile-only {
+    gap: 2px;
+  }
+}
+
+.pageNum {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 $spacing-sm;
+  @include flex-center;
+  background: none;
+  border: none;
+  color: $color-gray;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  cursor: pointer;
+  border-radius: $radius-sm;
+  transition: all $transition-fast;
+  flex-shrink: 0;
+
+  @include mobile-only {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 $spacing-xs;
+    font-size: 0.75rem;
+  }
+
+  &:hover {
+    background-color: rgba($color-primary, 0.1);
+    color: $color-navy;
+  }
+}
+
+.pageNumCurrent {
+  background-color: rgba($color-primary, 0.1);
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.dots {
+  padding: 0 $spacing-xs;
+  color: $color-gray;
+
+  @include mobile-only {
+    padding: 0 2px;
+  }
+}
