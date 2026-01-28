@@ -241,11 +241,18 @@
   padding: 0 4px;
 }
 
+.accountWrapper {
+  position: relative;
+}
+
 .accountInfo {
   display: flex;
   align-items: center;
   gap: $spacing-sm;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
 
   @include mobile-only {
     gap: 0;
@@ -293,4 +300,56 @@
 
 .caret {
   flex-shrink: 0;
+  transition: transform $transition-fast;
+}
+
+.caretOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + $spacing-sm);
+  right: 0;
+  background-color: $color-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  min-width: 200px;
+  z-index: $z-index-dropdown;
+  overflow: hidden;
+  border: 1px solid $color-gray-lighter;
+}
+
+.dropdownHeader {
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid $color-gray-lighter;
+  background-color: rgba($color-gray-lighter, 0.3);
+}
+
+.dropdownEmail {
+  font-size: $font-size-xs;
+  color: $color-gray;
+  word-break: break-all;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  color: $color-navy;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: rgba($color-gray-lighter, 0.5);
+  }
+
+  svg {
+    color: $color-gray;
+  }
 }
