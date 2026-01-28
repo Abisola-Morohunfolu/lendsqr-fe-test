@@ -17,7 +17,7 @@ const mockUsers = [
     username: 'gabrielle_browning',
     email: 'gabriellebrowning@billmed.com',
     phoneNumber: '7552737954',
-    dateJoined: '2024-05-15T07:17:38.000Z',
+    createdAt: '2024-05-15T07:17:38.000Z',
     status: 'Active' as const,
     avatar: '',
     fullName: 'Gabrielle Browning',

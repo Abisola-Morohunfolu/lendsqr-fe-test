@@ -65,7 +65,7 @@ export interface IUser {
   phoneNumber: string
   
   // Status and metadata
-  dateJoined: string // ISO date string
+  createdAt: string // ISO date string
   status: UserStatus
   avatar: string // URL to avatar image
   

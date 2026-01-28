@@ -1,4 +1,5 @@
 import type { IUser } from '@/types/user.types'
+import {formatDate} from "@/utils/formatters.ts";
 
 const DATA_URL = '/users.json'
 
@@ -15,7 +16,7 @@ function normalizeUser(u: any): IUser {
     username: String(u?.username ?? ''),
     email: String(u?.email ?? ''),
     phoneNumber: String(u?.phoneNumber ?? ''),
-    dateJoined: String(u?.dateJoined ?? ''),
+    createdAt: formatDate(String(u?.createdAt ?? '')),
     status: String(u?.status ?? 'Active'),
     avatar: String(u?.avatar ?? ''),
     fullName: String(u?.fullName ?? ''),

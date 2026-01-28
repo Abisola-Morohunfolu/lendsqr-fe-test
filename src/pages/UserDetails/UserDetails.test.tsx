@@ -26,7 +26,7 @@ const mockUser = {
   username: 'gabrielle_browning',
   email: 'gabriellebrowning@billmed.com',
   phoneNumber: '7552737954',
-  dateJoined: '2024-05-FridayT07:17:38.SSS-01:00',
+  createdAt: '2024-05-FridayT07:17:38.SSS-01:00',
   status: 'Inactive' as const,
   avatar: 'https://i.pravatar.cc/150?u=gabriellebrowning@billmed.com',
   fullName: 'Gabrielle Browning',

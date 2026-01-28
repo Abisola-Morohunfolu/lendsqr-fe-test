@@ -114,7 +114,7 @@ describe('UsersTable Component', () => {
   })
 
   it('should format date correctly', () => {
-    const user = createMockUser({ dateJoined: '2020-05-15T10:30:00.000Z' })
+    const user = createMockUser({ createdAt: '2020-05-15T10:30:00.000Z' })
     render(<UsersTable users={[user]} {...defaultProps} />)
 
     // Date should be formatted (check for month abbreviation)

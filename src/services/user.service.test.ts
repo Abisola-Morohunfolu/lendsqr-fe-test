@@ -48,7 +48,7 @@ describe('User Service', () => {
         username: 'testuser',
         email: 'test@example.com',
         phoneNumber: '1234567890',
-        dateJoined: '2020-01-01T00:00:00Z',
+        createdAt: '2020-01-01T00:00:00Z',
         status: 'Active',
         fullName: 'Test User',
         accountBalance: 1000.5,

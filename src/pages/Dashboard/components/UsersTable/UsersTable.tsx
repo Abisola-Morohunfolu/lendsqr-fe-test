@@ -132,7 +132,7 @@ const UsersTable: React.FC<UsersTableProps> = ({
               <td>{user.username}</td>
               <td>{user.email}</td>
               <td>{user.phoneNumber}</td>
-              <td className={styles.dateCol}>{formatDate(user.dateJoined)}</td>
+              <td className={styles.dateCol}>{formatDate(user.createdAt)}</td>
               <td className={styles.statusCol}>
                 <StatusBadge status={user.status} />
               </td>

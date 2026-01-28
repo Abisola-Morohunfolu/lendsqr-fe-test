@@ -55,7 +55,7 @@ export function useDashboard() {
         return false
       }
       if (filters.date) {
-        const userDate = user.dateJoined.split('T')[0]
+        const userDate = user.createdAt.split('T')[0]
         if (userDate !== filters.date) {
           return false
         }
